@@ -1,0 +1,88 @@
+# Project Details: Car Recommendation System
+
+## Introduction
+The Car Recommendation System is a machine learning-based application designed to assist users in finding the most suitable cars based on their preferences. By leveraging content-based filtering techniques, the system recommends cars that match the user's input criteria such as car name, fuel type, price, and transmission type. The system uses a dataset of cars with detailed attributes and employs natural language processing (NLP) techniques to compute similarity scores between user preferences and available cars.
+
+## Methodology
+The project employs a content-based recommendation approach using the following steps:
+1. **Data Preprocessing**: The dataset is cleaned by removing missing values and combining relevant features into a single string for text-based analysis.
+2. **Feature Extraction**: The `TfidfVectorizer` is used to convert textual data into numerical vectors, capturing the importance of words in the context of the dataset.
+3. **Similarity Computation**: Cosine similarity is calculated between the user input and the dataset to rank cars based on relevance.
+4. **Filtering**: Cars are filtered based on the user's maximum price input.
+5. **Recommendation**: The top 10 cars with the highest similarity scores are displayed, along with their detailed attributes.
+
+## Step-by-Step Procedure
+1. **Dataset Preparation**:
+   - Load the dataset containing car details such as name, location, year, kilometers driven, fuel type, transmission, owner type, mileage, engine, seats, and price.
+   - Clean the dataset by removing rows with missing values.
+
+2. **Model Training**:
+   - Combine relevant features (`Name`, `Fuel_Type`, `Transmission`) into a single string for each car.
+   - Use `TfidfVectorizer` to transform the combined features into numerical vectors.
+   - Save the trained TF-IDF model and the preprocessed dataset for use in the recommendation system.
+
+3. **User Interface**:
+   - Create a Streamlit-based web interface for user interaction.
+   - Collect user inputs for car name, fuel type, maximum price, and transmission type.
+   - Compute similarity scores between the user input and the dataset using the trained TF-IDF model.
+   - Filter cars based on the maximum price and display the top 10 recommendations.
+
+4. **Recommendation Display**:
+   - Present the recommended cars in a visually appealing format, including all relevant details such as name, location, year, kilometers driven, fuel type, transmission, owner type, mileage, engine, seats, and price.
+
+## Dataset Details
+- **Source**: The dataset is a CSV file named `car_data.csv`.
+- **Attributes**:
+  - `Name`: The name of the car.
+  - `Location`: The location where the car is available.
+  - `Year`: The manufacturing year of the car.
+  - `Kilometers_Driven`: The total kilometers the car has been driven.
+  - `Fuel_Type`: The type of fuel used by the car (e.g., Petrol, Diesel).
+  - `Transmission`: The type of transmission (e.g., Manual, Automatic).
+  - `Owner_Type`: The type of ownership (e.g., First, Second).
+  - `Mileage`: The mileage of the car in kmpl.
+  - `Engine`: The engine capacity in CC.
+  - `Seats`: The number of seats in the car.
+  - `Price`: The price of the car in INR.
+
+## Model Used and Its Details
+- **Model**: TF-IDF Vectorizer with Cosine Similarity
+  - **TF-IDF (Term Frequency-Inverse Document Frequency)**:
+    - Converts textual data into numerical vectors by assigning weights to words based on their frequency and importance.
+    - Captures the relevance of words in the context of the dataset.
+  - **Cosine Similarity**:
+    - Measures the cosine of the angle between two vectors to determine their similarity.
+    - Used to rank cars based on their similarity to the user's input.
+
+## Tools and Libraries Used
+- **Programming Language**: Python
+- **Libraries**:
+  - `pandas`: For data manipulation and preprocessing.
+  - `scikit-learn`: For TF-IDF vectorization and cosine similarity computation.
+  - `joblib`: For saving and loading the trained model and dataset.
+  - `streamlit`: For building the user interface.
+
+## Technologies Used
+- **Machine Learning**: Content-based recommendation system.
+- **Natural Language Processing (NLP)**: TF-IDF vectorization for feature extraction.
+- **Web Development**: Streamlit for creating an interactive web application.
+
+## Concepts Used
+1. **Content-Based Filtering**:
+   - Recommends items based on the similarity between user preferences and item attributes.
+   - Uses textual features to compute similarity scores.
+
+2. **TF-IDF Vectorization**:
+   - Converts textual data into numerical vectors by assigning weights to words based on their importance.
+
+3. **Cosine Similarity**:
+   - Measures the similarity between two vectors by calculating the cosine of the angle between them.
+
+4. **Data Preprocessing**:
+   - Cleaning the dataset by removing missing values.
+   - Combining relevant features into a single string for text-based analysis.
+
+5. **Web Application Development**:
+   - Designing an interactive user interface for collecting inputs and displaying recommendations.
+
+This project demonstrates the integration of machine learning, NLP, and web development to create a practical recommendation system for cars.
